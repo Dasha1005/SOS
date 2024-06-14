@@ -1,5 +1,6 @@
 //variables
 $bgColor: #010101;
+$hoverColor: #ff0000;
 $secondColor: #FFB548;
 $thirdColor: #808080;
 $color: #ffffff;
@@ -63,16 +64,27 @@ ul{
     margin: 0 auto;
 }
 
-.title{
+.title,
+.second-title{
     letter-spacing: 3px;
     font-family: $titleFontFamily;
-    @include textStyle($fontSize: 68px, $lineH: 80px);
     text-transform: uppercase;
+}
+
+.title{
+    @include textStyle($fontSize: 68px, $lineH: 80px);
+}
+
+.second-title{
+    @include textStyle($fontSize: 60px, $lineH: 70px);
 }
 
 .main-btn{
     margin: 0 auto;
     max-width: 260px;
+    width: 100%;
+    outline: none;
+    border: none;
     padding: 19px 25px;
     display: flex;
     justify-content: center;
@@ -81,11 +93,18 @@ ul{
     border-radius: 4px;
     color: $btnColor;
     @include textStyle($fontSize: 16px, $lineH: 22px, $fontW: 600);
+    transition: all 0.3s ease-in-out;
+
+    &:hover,
+    &:focus-visible{
+       box-shadow: 2px 2px $btnColor;
+       outline: none; 
+       cursor: pointer;
+    }
 }
 
 //header
 .header{
-    margin-bottom: 240px;
 
     &__inner{
         display: flex;
@@ -137,6 +156,7 @@ ul{
 
 //banner
 .banner{
+    padding-top: 240px;
     padding-bottom: 416px;
 
     &__title,
@@ -159,7 +179,7 @@ ul{
     url('../images/bg-img-1.png');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top center;
+    background-position: center;
 }
 
 //about
@@ -187,8 +207,7 @@ ul{
         margin-bottom: 8px;
     }
 
-    &__title{
-        @include textStyle($fontSize: 60px, $lineH: 70px); 
+    &__title{ 
         border-bottom: 2px solid #ffffff; 
         margin-bottom: 60px;
     }
@@ -215,7 +234,6 @@ ul{
     }
 
     &__title{
-        @include textStyle($fontSize: 60px, $lineH: 70px); 
         margin-bottom: 145px;
     }
 
@@ -242,7 +260,7 @@ ul{
 
     &__item{
         text-align: center;
-        max-width: calc(33% - 30px);
+        max-width: calc(33.33% - 20px);
         width: 100%;
         display: flex;
         flex-direction: column;
@@ -276,6 +294,8 @@ ul{
 
     &__wrapper{
         justify-content: space-between;
+        flex-wrap: wrap-reverse;
+        gap: 25px;
     }
 
     &__social-list{
@@ -287,7 +307,7 @@ ul{
     }
 
     &__social-img:hover path {
-        fill: red;
+        fill: $hoverColor;
     }
 
     &__logo-img{
@@ -325,3 +345,336 @@ ul{
         }
     }
 }
+
+@media screen and (max-width: 1280px){
+    .title{
+        @include textStyle($fontSize: 45px, $lineH: 55px);
+    }
+
+    .second-title{
+        @include textStyle($fontSize: 38px, $lineH: 48px);
+    }
+
+    .banner{
+        padding-top: 120px;
+        padding-bottom: 250px;
+
+        &__subtitle{
+            @include textStyle($fontSize: 22px, $lineH: 28px);
+        }
+    }
+
+    .about{
+        padding: 120px 0;
+        margin-bottom: 0;
+
+        &__text-content {
+            max-width: 43%;
+        }
+    }
+
+    .features{
+        padding-top: 30px;
+        &__items{
+            gap: 20px;
+        }
+
+        &__item{
+            max-width: calc(33.33% - 13px);
+        }
+
+        &__item-title{
+            color: $secondColor;
+            @include textStyle($fontSize: 22px, $lineH: 1.2); 
+        }
+    }
+
+    .footer{
+        &__nav-content{
+            max-width: 55%;
+        }
+    }
+
+}
+
+@media screen and (max-width: 1024px){
+    body{
+        @include textStyle($fontSize: 16px, $lineH: 20px);
+    }
+
+    .second-title{
+        @include textStyle($fontSize: 34px, $lineH: 44px);
+    }
+
+    .bg-wrapper{
+        background-position: top center;
+    }
+
+    .header{
+        &__logo{
+            margin-right: 90px;
+        }
+    }
+
+    .about{
+        &__img{
+            max-width: 100%;
+        }
+
+        &__img-content{
+            max-width: 45%;
+        }
+
+        &__text-content{
+            max-width: 50%;
+            margin-top: 20px;
+        }
+
+        &__title{
+            margin-bottom: 40px;
+        }
+    }
+
+    .features{
+        &__items{
+            flex-direction: column;
+            gap: 50px;
+            align-items: center;
+        }
+
+        &__item{
+            max-width: 60%;
+            text-align: left;
+        }
+
+        &__item-container-img{
+            margin: 0 auto 0 0;
+        }
+    }
+
+    .footer{
+        &__logo-img {
+            max-width: 70px;
+        }
+
+        &__social-list {
+            gap: 50px;
+        }
+
+        &__nav-content{
+            gap: 40px;
+            max-width: 60%;
+            justify-content: flex-start;
+        }
+    }
+
+    .menu__list{
+        gap: 30px;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .main-btn {
+        max-width: 220px;
+        padding: 13px 20px;
+        @include textStyle($fontSize: 14px, $lineH: 22px, $fontW: 600);
+    }
+
+    .menu{
+        display: none;
+    }
+
+    .title{
+        letter-spacing: 2px;
+        @include textStyle($fontSize: 30px, $lineH: 38px);
+    }
+
+    .second-title{
+        letter-spacing: 2px;
+        @include textStyle($fontSize: 25px, $lineH: 34px);
+    }
+
+    .header{
+        &__inner{
+            padding: 15px 0;
+        }
+
+        &__logo{
+            max-width: 50px;
+        }
+    }
+
+    .banner{
+        padding-top: 50px;
+        padding-bottom: 230px;
+
+        &__title{
+            margin-bottom: 10px;
+        }
+
+        &__subtitle{
+            @include textStyle($fontSize: 18px, $lineH: 26px);
+        }
+    }
+
+    .about{
+        padding: 80px 0;
+        &__subtitle{
+            @include textStyle($fontSize: 18px, $lineH: 26px);
+        }
+    }
+
+    .features{
+        margin-bottom: 80px;
+
+        &__subtitle{
+            @include textStyle($fontSize: 18px, $lineH: 26px);
+        }
+
+        &__title{
+            margin-bottom: 60px;
+        }
+
+        &__item{
+            max-width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 576px) {
+    body{
+        @include textStyle($fontSize: 14px, $lineH: 20px);
+    }
+
+    .banner {
+        padding-top: 30px;
+        padding-bottom: 180px;
+    }
+
+        .about{
+            padding: 60px 0;
+            &__inner{
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            &__text {
+                max-width: 100%;
+                margin: 0 0 10px;
+            }
+
+            &__text-content {
+            max-width: 100%;
+            margin-top: 0;
+            margin-right: 0;
+        }
+    }
+
+    .features{
+        padding-top: 0;
+        margin-bottom: 60px;
+
+        &__title{
+            margin-bottom: 30px;
+        }
+
+        &__item{
+            gap: 15px;
+        }
+
+        &__item-title{
+            @include textStyle($fontSize: 18px, $lineH: 22px);
+        }
+
+        &__item-container-img {
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+        }
+
+        &__item-img {
+            max-width: 40px;
+        }
+    }
+    .footer{
+
+        &__logo-img {
+        max-width: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 480px){
+    .title{
+        @include textStyle($fontSize: 26px, $lineH: 34px);
+    }
+
+    .second-title{
+        @include textStyle($fontSize: 22px, $lineH: 30px);
+        letter-spacing: 1px;
+    }
+
+    .banner{
+        padding-bottom: 200px;
+        &__subtitle{
+            @include textStyle($fontSize: 16px, $lineH: 24px);
+            letter-spacing: 1px;
+        }
+    }
+
+    .about{
+        &__subtitle{
+            @include textStyle($fontSize: 16px, $lineH: 24px);
+        }
+
+        &__title{
+            margin-bottom: 30px;
+        }
+    }
+
+    .features{
+        &__subtitle{
+            @include textStyle($fontSize: 16px, $lineH: 24px);
+        }
+    }
+
+    .footer{
+        &__social-list {
+            gap: 40px;
+        }
+
+        &__copyright{
+            @include textStyle($fontSize: 12px, $lineH: 16px);
+        }
+    }
+}
+
+@media screen and (max-width: 360px){
+    .title{
+        @include textStyle($fontSize: 23px, $lineH: 30px);
+    }
+
+    .second-title{
+        @include textStyle($fontSize: 20px, $lineH: 28px);
+        letter-spacing: 1px;
+    }
+
+    .banner{
+        &__subtitle{
+            @include textStyle($fontSize: 14px, $lineH: 20px);
+        }
+    }
+
+    .about{
+        &__img-content {
+            max-width: 65%;
+        }
+    }
+    .footer{
+        &__social-list {
+            gap: 35px;
+        }
+    }
+}
+
+
