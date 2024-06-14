@@ -449,9 +449,9 @@ ul {
         -ms-flex-direction: column;
             flex-direction: column;
     gap: 50px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+  }
+  .features__title {
+    margin-bottom: 60px;
   }
   .features__item {
     max-width: 60%;
@@ -533,9 +533,6 @@ ul {
     font-size: 18px;
     line-height: 26px;
     font-weight: 400;
-  }
-  .features__title {
-    margin-bottom: 60px;
   }
   .features__item {
     max-width: 100%;

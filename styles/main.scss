@@ -439,7 +439,10 @@ ul{
         &__items{
             flex-direction: column;
             gap: 50px;
-            align-items: center;
+        }
+
+        &__title{
+            margin-bottom: 60px;
         }
 
         &__item{
@@ -529,10 +532,6 @@ ul{
 
         &__subtitle{
             @include textStyle($fontSize: 18px, $lineH: 26px);
-        }
-
-        &__title{
-            margin-bottom: 60px;
         }
 
         &__item{
